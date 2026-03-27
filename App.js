@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import {View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {Provider as PaperProvider} from 'react-native-paper';
+import Campobase from './components/CampobaseComponent';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>This is my first (not really) React Native app</Text>
-      <StatusBar style="auto" />
-      <Image source={require("./assets/user1.jpg")} style={styles.image} />
-    </View>
+    <SafeAreaProvider>
+      <PaperProvider>
+        <View style={{flex: 1}}>
+          <Campobase />
+          <StatusBar style="auto" />
+        </View>
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fffffff',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-});
